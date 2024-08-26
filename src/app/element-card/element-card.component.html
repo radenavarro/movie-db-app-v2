@@ -1,0 +1,7 @@
+<div class="element-card">
+    <h3>{{ film.title }}</h3>
+    <p><strong>Lanzamiento:</strong> {{ film.release_date }}</p>
+    <p><strong>Puntuación:</strong> {{ film.vote_average }}</p>
+    <img class="film-poster" src="https://image.tmdb.org/t/p/original/{{ film.poster_path }}" alt="{{ film.title }}">
+    <p><strong>Sinopsis:</strong> {{ film.overview }}</p>
+</div>

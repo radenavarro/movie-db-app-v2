@@ -1,0 +1,10 @@
+<div>
+    <h2>{{ titulo }}</h2>
+    <article class="film-container">
+        @for(film of this.peliculas; track film.id) {
+            <app-element-card [film]="film" />    
+        }
+    </article>
+</div>
+
+
