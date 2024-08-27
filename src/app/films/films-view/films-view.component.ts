@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FilmsListComponent } from '../films-list/films-list.component';
-import { NavbarComponent } from '../navbar/navbar.component';
-import { TitleComponent } from '../title/title.component';
+import { NavbarComponent } from '../../navbar/navbar.component';
+import { TitleComponent } from '../../title/title.component';
 
 @Component({
   selector: 'app-films-view',

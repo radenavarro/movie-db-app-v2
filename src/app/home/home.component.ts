@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FilmsListComponent } from '../films-list/films-list.component';
+import { FilmsListComponent } from '../films/films-list/films-list.component';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { TitleComponent } from '../title/title.component';
 

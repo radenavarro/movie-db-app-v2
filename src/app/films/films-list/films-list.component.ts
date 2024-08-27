@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { PeliculasService } from '../peliculas.service';
-import { ElementCardComponent } from '../element-card/element-card.component';
-import { Movie, MovieResponse } from '../types';
+import { PeliculasService } from '../../peliculas.service';
+import { FilmCardComponent } from '../film-card/film-card.component';
+import { Movie, MovieResponse } from '../../types';
 
 @Component({
   selector: 'app-films-list',
   standalone: true,
-  imports: [ElementCardComponent],
+  imports: [FilmCardComponent],
   templateUrl: './films-list.component.html',
   styleUrl: './films-list.component.css'
 })

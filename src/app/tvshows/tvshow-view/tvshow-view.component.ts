@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { TitleComponent } from '../title/title.component';
-import { NavbarComponent } from '../navbar/navbar.component';
+import { TitleComponent } from '../../title/title.component';
+import { NavbarComponent } from '../../navbar/navbar.component';
 import { TvshowListComponent } from '../tvshow-list/tvshow-list.component';
 
 @Component({

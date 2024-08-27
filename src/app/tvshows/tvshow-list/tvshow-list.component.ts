@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { SeriesService } from '../series.service';
+import { SeriesService } from '../../series.service';
 import { TvshowCardComponent } from '../tvshow-card/tvshow-card.component';
+import { Tvshow, TvshowResponse } from '../../types';
+
 
 @Component({
   selector: 'app-tvshow-list',
@@ -11,14 +13,14 @@ import { TvshowCardComponent } from '../tvshow-card/tvshow-card.component';
 })
 export class TvshowListComponent {
   public titulo: string = '';
-  public series: any[] = [];
+  public series: Tvshow[] = [];
   constructor(private _seriesService:SeriesService) {
 
   }
 
   getTvShows() {
     this._seriesService.getTvShows().subscribe({
-      next: (data: any) => {
+      next: (data: TvshowResponse) => {
         this.series = data.results;
         console.log('listado de series cargado');
       },

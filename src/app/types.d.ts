@@ -21,3 +21,20 @@ export type MovieResponse = {
     total_pages: number;
     total_results: number;
 }
+
+export type Tvshow = {
+    name?: string;
+    id?: number;
+    overview?: string;
+    poster_path?: string;
+    first_air_date?: string;
+    vote_average?: number;
+    vote_count?: number;
+}
+
+export type TvshowResponse = {
+    page: number;
+    results: Tvshow[];
+    total_pages: number;
+    total_results: number;
+}
