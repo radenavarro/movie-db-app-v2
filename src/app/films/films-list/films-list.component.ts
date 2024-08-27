@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { PeliculasService } from '../../peliculas.service';
 import { FilmCardComponent } from '../film-card/film-card.component';
 import { Movie, MovieResponse } from '../../types';
+import { LOCALSTORAGE } from '../../storage';
+import dayjs from 'dayjs';
 
 @Component({
   selector: 'app-films-list',
@@ -18,19 +20,40 @@ export class FilmsListComponent {
   }
 
   getFilms() {
-    this._peliculasService.getFilms().subscribe({
-      next: (data: MovieResponse) => {
-        this.peliculas = data.results;
-        console.log('listado de películas cargado');
-      },
-      error: (error: any) => {
-        console.error(error);
+    const storedFilms = LOCALSTORAGE.get("films");
+    // Sólo se pide a la API si no hay datos en el caché o los que hay tienen más de 10 minutos de antiguedad
+    if (!storedFilms || this.isCachedTenMinutesAgo(storedFilms[0]?.date)) {
+      this._peliculasService.getFilms().subscribe({
+        next: (data: MovieResponse) => {
+          const fecha = dayjs().format('YYYY-MM-DD HH:mm:ss');
+          const mappedResults = data.results.map((movie: Movie) => ({ ...movie, date: fecha }));
+          this.peliculas = mappedResults;
+          
+          LOCALSTORAGE.set("films", mappedResults);
+          console.log('listado de películas cargado');
+        },
+        error: (error: any) => {
+          console.error(error);
+        }
+      });
+    } else {
+      if (storedFilms) {
+        console.log('Obteniendo películas del caché')
+        this.peliculas = storedFilms;
       }
-    });
+    }
   }
 
   ngOnInit(): void {
     this.titulo = 'Listado de películas';
     this.getFilms();
+  }
+
+  isCachedTenMinutesAgo(date?: string) {
+    const now = dayjs();
+    const cachedDatePlusTenMinutes = dayjs(date).add(10, 'minutes');
+    console.log(now.format("DD-MM-YYYY HH:mm:ss"))
+    console.log(cachedDatePlusTenMinutes.format("DD-MM-YYYY HH:mm:ss"))
+    return cachedDatePlusTenMinutes.isBefore(now);
   }
 }

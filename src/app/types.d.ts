@@ -13,6 +13,7 @@ export type Movie = {
     video?: boolean;
     vote_average?: number;
     vote_count?: number;
+    date?: string;
 }
 
 export type MovieResponse = {
@@ -30,6 +31,7 @@ export type Tvshow = {
     first_air_date?: string;
     vote_average?: number;
     vote_count?: number;
+    date?: string;
 }
 
 export type TvshowResponse = {
@@ -38,3 +40,5 @@ export type TvshowResponse = {
     total_pages: number;
     total_results: number;
 }
+
+export type StoredKeys = 'films' | 'series'

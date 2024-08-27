@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { SeriesService } from '../../series.service';
 import { TvshowCardComponent } from '../tvshow-card/tvshow-card.component';
 import { Tvshow, TvshowResponse } from '../../types';
+import { LOCALSTORAGE } from '../../storage';
+import dayjs from 'dayjs';
 
 
 @Component({
@@ -19,19 +21,37 @@ export class TvshowListComponent {
   }
 
   getTvShows() {
-    this._seriesService.getTvShows().subscribe({
-      next: (data: TvshowResponse) => {
-        this.series = data.results;
-        console.log('listado de series cargado');
-      },
-      error: (error: any) => {
-        console.error(error);
+    const storedTvshows = LOCALSTORAGE.get("series");
+
+    if (!storedTvshows || this.isCachedTenMinutesAgo(storedTvshows[0]?.date)) {
+      this._seriesService.getTvShows().subscribe({
+        next: (data: TvshowResponse) => {
+          const fecha = dayjs().format('YYYY-MM-DD HH:mm:ss');
+          const mappedResults = data.results.map((tvshow: Tvshow) => ({ ...tvshow, date: fecha }));
+          this.series = mappedResults;
+          LOCALSTORAGE.set("series", mappedResults);
+          console.log('listado de series cargado');
+        },
+        error: (error: any) => {
+          console.error(error);
+        }
+      });
+    } else {
+      if (storedTvshows) {
+        console.log('Obteniendo series del caché')
+        this.series = storedTvshows;
       }
-    });
+    }
   }
 
   ngOnInit(): void {
     this.titulo = 'Listado de series';
     this.getTvShows();
+  }
+
+  isCachedTenMinutesAgo(date?: string) {
+    const now = dayjs();
+    const cachedDatePlusTenMinutes = dayjs(date).add(10, 'minutes');
+    return cachedDatePlusTenMinutes.isBefore(now);
   }
 }
