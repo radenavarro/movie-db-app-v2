@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { PeliculasService } from '../peliculas.service';
 import { ElementCardComponent } from '../element-card/element-card.component';
 import { Movie, MovieResponse } from '../types';

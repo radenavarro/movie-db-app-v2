@@ -1,0 +1,7 @@
+<div class="serie-card">
+    <h3>{{ serie.name }}</h3>
+    <p><strong>Lanzamiento:</strong> {{ serie.first_air_date }}</p>
+    <p><strong>Puntuación:</strong> {{ serie.vote_average }}</p>
+    <img class="serie-poster" src="https://image.tmdb.org/t/p/original/{{ serie.poster_path }}" alt="{{ serie.name }}">
+    <p><strong>Sinopsis:</strong> {{ serie.overview }}</p>
+</div>

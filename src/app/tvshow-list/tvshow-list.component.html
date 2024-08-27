@@ -1,0 +1,8 @@
+<div>
+    <h2>{{ titulo }}</h2>
+    <article class="tvshow-container">
+        @for(serie of this.series; track serie.id) {
+            <app-tvshow-card [serie]="serie" />    
+        }
+    </article>
+</div>

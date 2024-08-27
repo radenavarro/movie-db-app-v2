@@ -1,0 +1,9 @@
+.serie-poster {
+    width: 100%;
+}
+
+.serie-card {
+    padding: 10px;
+    box-sizing: border-box;
+    background: linear-gradient(to bottom, rgb(255 255 255 / 20%), rgb(255 255 255 / 0%));
+}
