@@ -1,0 +1,23 @@
+nav {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    background: linear-gradient(to bottom, rgb(255 255 255 / 20%), rgb(255 255 255 / 0%));
+    max-width: fit-content;
+    margin-inline: auto;
+}
+
+nav a {
+    padding: 10px;
+    text-decoration: none;
+    color: rgb(233, 233, 233);
+    transition: background-color, color 0.3s;
+}
+
+nav a:hover {
+    background-color: rgb(255 255 255 / 70%);
+    color: black;
+}

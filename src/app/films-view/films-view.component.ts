@@ -4,12 +4,12 @@ import { NavbarComponent } from '../navbar/navbar.component';
 import { TitleComponent } from '../title/title.component';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-films-view',
   standalone: true,
   imports: [FilmsListComponent, NavbarComponent, TitleComponent],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  templateUrl: './films-view.component.html',
+  styleUrl: './films-view.component.css'
 })
-export class HomeComponent {
+export class FilmsViewComponent {
 
 }
