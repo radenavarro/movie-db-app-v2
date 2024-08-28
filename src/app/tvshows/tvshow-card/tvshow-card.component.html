@@ -1,7 +1,14 @@
-<div class="serie-card">
+<div class="pantalla" [style]="{'background-color': backgroundColor}"></div>
+<div class="serie-card" (click)="showDialog()">
     <h3>{{ serie.name }}</h3>
     <p><strong>Lanzamiento:</strong> {{ serie.first_air_date }}</p>
     <p><strong>Puntuación:</strong> {{ serie.vote_average }}</p>
-    <img class="serie-poster" src="https://image.tmdb.org/t/p/original/{{ serie.poster_path }}" alt="{{ serie.name }}">
+    <img class="serie-backdrop" src="https://image.tmdb.org/t/p/original/{{ serie.backdrop_path }}" alt="{{ serie.name }}">
     <p><strong>Sinopsis:</strong> {{ serie.overview }}</p>
+    <dialog class="serieInfo" [attr.open]="modalVisible ? '' : null" >
+        <div class="top-bar"><button (click)="closeDialog($event)">×</button></div>
+        <div class="serieInfo-content">
+            <img class="serie-poster" src="https://image.tmdb.org/t/p/original/{{ serie.poster_path }}" alt="{{ serie.name }}">
+        </div>
+    </dialog>
 </div>

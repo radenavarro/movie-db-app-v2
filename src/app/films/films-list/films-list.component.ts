@@ -47,7 +47,7 @@ export class FilmsListComponent {
     this.getFilms();
   }
 
-  isCachedTenMinutesAgo(date?: string) {
+  isCachedTenMinutesAgo(date?: string):boolean {
     const now = dayjs();
     const cachedDatePlusTenMinutes = dayjs(date).add(10, 'minutes');
     return cachedDatePlusTenMinutes.isBefore(now);

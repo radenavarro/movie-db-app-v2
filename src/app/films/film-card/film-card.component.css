@@ -1,9 +1,71 @@
-.film-poster {
+.film-backdrop {
     width: 100%;
+}
+
+.film-poster {
+    width: 50vh;
+    align-content: center;
+    margin-inline: auto;
 }
 
 .film-card {
     padding: 10px;
     box-sizing: border-box;
     background: linear-gradient(to bottom, rgb(255 255 255 / 20%), rgb(255 255 255 / 0%));
+}
+
+dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 100%;
+    z-index: 10;
+    background-color: rgb(110, 108, 138);
+}
+
+.pantalla {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.top-bar {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+}
+
+.top-bar button {
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    background-color: rgb(75, 60, 78);
+    color: white;
+    cursor: pointer;
+    transition: background-color, color 0.3s;
+    place-content: center;
+    font-size: 40px;
+}
+
+.top-bar button:hover {
+    background-color: rgb(237, 189, 246);
+    color: black;
+}
+
+.filmInfo-content {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    box-sizing: border-box;
 }

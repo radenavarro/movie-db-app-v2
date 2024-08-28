@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { FilmsViewComponent } from './films/films-view/films-view.component';
 
 @Component({
   selector: 'app-root',
