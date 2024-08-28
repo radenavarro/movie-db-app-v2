@@ -30,7 +30,6 @@ export class FilmsListComponent {
           this.peliculas = mappedResults;
           
           LOCALSTORAGE.set("films", mappedResults);
-          console.log('listado de películas cargado');
         },
         error: (error: any) => {
           console.error(error);
@@ -38,7 +37,6 @@ export class FilmsListComponent {
       });
     } else {
       if (storedFilms) {
-        console.log('Obteniendo películas del caché')
         this.peliculas = storedFilms;
       }
     }
@@ -52,8 +50,6 @@ export class FilmsListComponent {
   isCachedTenMinutesAgo(date?: string) {
     const now = dayjs();
     const cachedDatePlusTenMinutes = dayjs(date).add(10, 'minutes');
-    console.log(now.format("DD-MM-YYYY HH:mm:ss"))
-    console.log(cachedDatePlusTenMinutes.format("DD-MM-YYYY HH:mm:ss"))
     return cachedDatePlusTenMinutes.isBefore(now);
   }
 }

@@ -30,7 +30,6 @@ export class TvshowListComponent {
           const mappedResults = data.results.map((tvshow: Tvshow) => ({ ...tvshow, date: fecha }));
           this.series = mappedResults;
           LOCALSTORAGE.set("series", mappedResults);
-          console.log('listado de series cargado');
         },
         error: (error: any) => {
           console.error(error);
@@ -38,7 +37,6 @@ export class TvshowListComponent {
       });
     } else {
       if (storedTvshows) {
-        console.log('Obteniendo series del caché')
         this.series = storedTvshows;
       }
     }
