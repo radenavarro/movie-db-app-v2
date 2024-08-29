@@ -2,7 +2,12 @@
     <h2>{{ titulo }}</h2>
     <article class="tvshow-container">
         @for(serie of this.series; track serie.id) {
-            <app-tvshow-card [serie]="serie" />    
+            @defer (on viewport) {
+                <app-tvshow-card [serie]="serie" />
+            } @placeholder {
+                <div class="card-placeholder"></div>
+            }
+              
         }
     </article>
 </div>

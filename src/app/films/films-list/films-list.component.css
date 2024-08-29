@@ -4,3 +4,7 @@
     grid-gap: 20px;
     padding: 20px;
 }
+.card-placeholder {
+    min-height: 300px;
+    background: linear-gradient(to bottom, rgb(255 255 255 / 20%), rgb(255 255 255 / 0%));
+}
