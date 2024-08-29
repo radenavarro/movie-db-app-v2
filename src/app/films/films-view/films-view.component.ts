@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
 import { FilmsListComponent } from '../films-list/films-list.component';
 import { NavbarComponent } from '../../navbar/navbar.component';
 import { TitleComponent } from '../../title/title.component';
@@ -11,5 +11,6 @@ import { TitleComponent } from '../../title/title.component';
   styleUrl: './films-view.component.css'
 })
 export class FilmsViewComponent {
-
+  @HostBinding('style.width') width = '100%';
+  @HostBinding('style.display') display = 'block';
 }
