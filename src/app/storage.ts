@@ -1,4 +1,4 @@
-import { Movie, StoredKeys, Tvshow } from "./types";
+import { StoredKeys } from "./types";
 
 export const LOCALSTORAGE = (() => ({
     get(key: StoredKeys) {
@@ -12,4 +12,7 @@ export const LOCALSTORAGE = (() => ({
         const strValue = JSON.stringify(value);
         localStorage.setItem(key, strValue);
     },
+    delete(key: StoredKeys) {
+        localStorage.removeItem(key);
+    }
 }))()
