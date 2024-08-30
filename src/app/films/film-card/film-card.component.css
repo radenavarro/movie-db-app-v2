@@ -12,6 +12,14 @@
     padding: 10px;
     box-sizing: border-box;
     background: linear-gradient(to bottom, rgb(255 255 255 / 20%), rgb(255 255 255 / 0%));
+    max-height: 500px;
+}
+
+.card-sinopsis {
+    display: -webkit-box;
+    -webkit-line-clamp: 8;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
 }
 
 dialog {
@@ -40,6 +48,8 @@ dialog {
     justify-content: flex-end;
     align-items: center;
     gap: 20px;
+    color: white;
+    font-variant: small-caps;
 }
 
 .top-bar button {
@@ -62,10 +72,15 @@ dialog {
 
 .filmInfo-content {
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: row nowrap;
     justify-content: center;
-    align-items: center;
+    align-items: top;
     gap: 20px;
     padding: 20px;
     box-sizing: border-box;
+}
+
+.dialog-sinopsis {
+    color: rgb(232,232,232);
+    font-size: large;
 }

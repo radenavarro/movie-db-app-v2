@@ -4,11 +4,12 @@
     <p><strong>Lanzamiento:</strong> {{ serie.first_air_date }}</p>
     <p><strong>Puntuación:</strong> {{ serie.vote_average }}</p>
     <img class="serie-backdrop" src="https://image.tmdb.org/t/p/original/{{ serie.backdrop_path }}" alt="{{ serie.name }}">
-    <p><strong>Sinopsis:</strong> {{ serie.overview }}</p>
+    <p class="card-sinopsis"><strong>Sinopsis:</strong> {{ serie.overview }}</p>
     <dialog class="serieInfo" [attr.open]="modalVisible ? '' : null" >
-        <div class="top-bar"><button (click)="closeDialog($event)">×</button></div>
+        <div class="top-bar"><h1>{{serie.name}}</h1><button (click)="closeDialog($event)">×</button></div>
         <div class="serieInfo-content">
             <img class="serie-poster" src="https://image.tmdb.org/t/p/original/{{ serie.poster_path }}" alt="{{ serie.name }}">
+            <p class="dialog-sinopsis"><strong>Sinopsis:</strong> {{ serie.overview }} </p>
         </div>
     </dialog>
 </div>
