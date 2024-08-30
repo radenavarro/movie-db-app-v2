@@ -8,6 +8,13 @@
     min-height: 300px;
     background: linear-gradient(to bottom, rgb(255 255 255 / 20%), rgb(255 255 255 / 0%));
 }
+
+.paginator ::ng-deep .ngx-pagination {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+
 .paginator ::ng-deep .ngx-pagination li a {
     color: rgb(232, 232, 232);
 }
