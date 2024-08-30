@@ -8,3 +8,14 @@
     min-height: 300px;
     background: linear-gradient(to bottom, rgb(255 255 255 / 20%), rgb(255 255 255 / 0%));
 }
+.paginator ::ng-deep .ngx-pagination li a {
+    color: rgb(232, 232, 232);
+}
+
+.paginator ::ng-deep .ngx-pagination li a:hover {
+    background-color: rgb(75, 60, 78);
+}
+
+.paginator ::ng-deep .ngx-pagination .current {
+    background: rgb(154, 0, 0);
+}
