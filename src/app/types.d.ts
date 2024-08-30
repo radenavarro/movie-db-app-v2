@@ -16,6 +16,11 @@ export type Movie = {
     date?: string;
 }
 
+export type StorageMovie = {
+    items: Movie[];
+    pages: number;
+}
+
 export type MovieResponse = {
     page: number;
     results: Movie[];
@@ -32,6 +37,11 @@ export type Tvshow = {
     vote_average?: number;
     vote_count?: number;
     date?: string;
+}
+
+export type StorageTvshow = {
+    items: Tvshow[];
+    pages: number;
 }
 
 export type TvshowResponse = {

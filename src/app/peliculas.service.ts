@@ -11,8 +11,8 @@ export class PeliculasService {
   private apiKey = API_KEY;
   constructor(private http: HttpClient) { }
 
-  public getFilms(): Observable<any> {
-    return this.http.get<MovieResponse>('https://api.themoviedb.org/3/movie/popular?api_key=' + this.apiKey);
+  public getFilms(page:number = 1): Observable<any> {
+    return this.http.get<MovieResponse>('https://api.themoviedb.org/3/movie/popular?api_key=' + this.apiKey + '&page=' + page);
   }
 
   public getFilm(id: number): Observable<any> {

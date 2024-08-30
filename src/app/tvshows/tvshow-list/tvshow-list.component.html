@@ -1,7 +1,7 @@
 <div>
     <h2>{{ titulo }}</h2>
     <article class="tvshow-container">
-        @for(serie of this.series; track serie.id) {
+        @for(serie of this.series | paginate: { itemsPerPage: 19, currentPage: page, totalItems: pages <= 500 ? pages : 500 }; track serie.id) {
             @defer (on viewport) {
                 <app-tvshow-card [serie]="serie" />
             } @placeholder {
@@ -10,4 +10,5 @@
               
         }
     </article>
+    <pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
 </div>

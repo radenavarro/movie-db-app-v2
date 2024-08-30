@@ -10,8 +10,8 @@ export class SeriesService {
   private apiKey = API_KEY;
   constructor(private http: HttpClient) { }
 
-  public getTvShows(): Observable<any> {
-    return this.http.get<any>('https://api.themoviedb.org/3/tv/popular?api_key=' + this.apiKey);
+  public getTvShows(page: number = 1): Observable<any> {
+    return this.http.get<any>('https://api.themoviedb.org/3/tv/popular?api_key=' + this.apiKey + '&page=' + page);
   }
 
   public getTvShow(id: number): Observable<any> {
